@@ -17,16 +17,21 @@ function findSteps(id) {
 
 function findAllSteps() {
     return db('steps')
-}
+};
 
-function add(schemeData) {
-    return db('schemes').insert(schemeData);
-}
+function add(scheme) {
+    return db('schemes').insert(scheme);
+};
+
+function update(changes, id) {
+    return db('schemes').where({id}).update(changes);
+};
 
 module.exports = {
     find,
     findById,
     findSteps,
     findAllSteps,
-    add
-}
+    add,
+    update
+} 
