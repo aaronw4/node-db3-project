@@ -31,6 +31,12 @@ function remove(id) {
     return db('schemes').where({id}).delete()
 }
 
+function addStep(stepData, id) {
+    return db('steps')
+        .where({scheme_id : id})
+        .insert(stepData)
+}
+
 module.exports = {
     find,
     findById,
@@ -38,5 +44,6 @@ module.exports = {
     findAllSteps,
     add,
     update,
-    remove
+    remove,
+    addStep
 } 
