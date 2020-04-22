@@ -14,6 +14,16 @@ router.get('/', (req, res) => {
   });
 });
 
+router.get('/steps', (req, res) => {
+  Schemes.findAllSteps()
+    .then(steps => {
+      res.json(steps);
+    })
+    .catch(err => {
+      res.status(500).json({message: 'Failed to get steps'})
+    })
+})
+
 router.get('/:id', (req, res) => {
   const { id } = req.params;
 
